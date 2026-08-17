@@ -5,6 +5,27 @@
  <script data-goatcounter="https://jayvachhraj.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
+
+<div id="visitor-count"></div>
+
+<script>
+var t = setInterval(function() {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+        clearInterval(t);
+
+        window.goatcounter.visit_count({
+            append: '#visitor-count',
+            type: 'html',
+            path: 'TOTAL',
+            no_branding: true,
+            attr: {
+                class: 'visitor-counter'
+            }
+        });
+    }
+}, 100);
+</script>
+
  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +33,23 @@
 <title>Jay Vachhraj | Kirana Store</title>
 
 <style>
+
+.visitor-counter {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: white;
+    color: #087a3d;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+
+
+
+ 
 *{
     margin:0;
     padding:0;
@@ -1090,6 +1128,12 @@ footer{
 
     © 2026 Jay Vachhraj | Kirana Store
 
+ <footer>
+
+ <div id="visitor-count"></div>
+
+    <p>© 2026 Jay Vachhraj | Kirana Store</p>
+
 </footer>
 
 
@@ -1457,5 +1501,24 @@ function filterCategory(category,button){
 
 </script>
 
+<div id="visitor-count"></div>
+
+<script>
+window.addEventListener("load", function () {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+        window.goatcounter.visit_count({
+            append: "#visitor-count",
+            type: "html",
+            path: "TOTAL",
+            no_branding: true
+        });
+    }
+});
+</script>
+
+
+
+
+ 
 </body>
 </html>
