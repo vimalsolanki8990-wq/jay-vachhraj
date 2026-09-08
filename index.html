@@ -1368,33 +1368,22 @@ return true;
 }
 
 
-function searchProducts(){
+function searchProducts() {
     let search = document.getElementById("search").value.toLowerCase().trim();
-    let products = document.querySelectorAll(".product");
+    
+    // Sabhi possible card classes ko ek sath select karega
+    let products = document.querySelectorAll(".product, .product-card, .card");
 
     products.forEach(product => {
-        // Card ke andar jo bhi text/naam likha hai use check karega
         let text = product.innerText.toLowerCase();
 
-        if(text.includes(search)){
-            product.style.display = "";
+        if (text.includes(search)) {
+            product.style.setProperty("display", "", "important");
         } else {
-            product.style.display = "none";
+            product.style.setProperty("display", "none", "important");
         }
     });
 }
-
-});
-
-}
-
-
-function filterCategory(category,button){
-
-let products =
-document.querySelectorAll(".product");
-
-
 document
 .querySelectorAll(".category-btn")
 .forEach(btn=>{
