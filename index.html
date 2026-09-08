@@ -708,6 +708,7 @@ View Products
 
 
 <!-- SEARCH -->
+<!-- SEARCH -->
 <div class="search-area">
     <div class="search-box">
         <input 
@@ -715,7 +716,7 @@ View Products
             id="search" 
             type="text" 
             placeholder="🔎 Search product (e.g. Parle, Masala)..." 
-            oninput="searchProducts()"
+            oninput="searchProducts()" 
             onkeypress="if(event.key === 'Enter') searchProducts()">
         <button type="button" class="search-btn" onclick="searchProducts()">Search</button>
     </div>
@@ -1398,18 +1399,26 @@ return true;
 function searchProducts() {
     let search = document.getElementById("search").value.toLowerCase().trim();
     let products = document.querySelectorAll(".product");
+    let hasMatch = false;
 
     products.forEach(product => {
         let text = product.innerText.toLowerCase();
         let name = (product.dataset.name || "").toLowerCase();
+        let category = (product.dataset.category || "").toLowerCase();
 
-        // Yeh text aur data-name dono se match karega (masala, atta, parle-g sab search honge)
-        if (text.includes(search) || name.includes(search)) {
+        // Check text, data-name, and category
+        if (search === "" || text.includes(search) || name.includes(search) || category.includes(search)) {
             product.style.display = "";
+            hasMatch = true;
         } else {
             product.style.display = "none";
         }
     });
+
+    // Agar kuch search kiya hai toh page seedha products grid par scroll kar dega
+    if (search !== "" && hasMatch) {
+        document.getElementById("products").scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 function filterCategory(category, button) {
