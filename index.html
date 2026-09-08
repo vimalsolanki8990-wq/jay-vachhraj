@@ -198,15 +198,25 @@ nav a{
 
 /* SEARCH */
 
+<!-- SEARCH -->
+/* SEARCH */
+
 .search-area{
     width:90%;
     max-width:700px;
     margin:30px auto;
 }
 
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
 .search{
     width:100%;
-    padding:17px 20px;
+    padding:16px 110px 16px 20px;
     border:1px solid #ddd;
     border-radius:30px;
     font-size:16px;
@@ -215,7 +225,23 @@ nav a{
     box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 
+.search-btn {
+    position: absolute;
+    right: 6px;
+    background: #087a3d;
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
+.search-btn:hover {
+    background: #065b2d;
+}
 /* SECTION */
 
 .section{
@@ -683,15 +709,18 @@ View Products
 
 <!-- SEARCH -->
 
+<!-- SEARCH -->
 <div class="search-area">
-
-<input
-class="search"
-id="search"
-type="text"
-placeholder="🔎 Search product..."
-onkeyup="searchProducts()">
-
+    <div class="search-box">
+        <input
+            class="search"
+            id="search"
+            type="text"
+            placeholder="🔎 Search product..."
+            oninput="searchProducts()"
+            onkeypress="if(event.key === 'Enter') searchProducts()">
+        <button class="search-btn" onclick="searchProducts()">Search</button>
+    </div>
 </div>
 
 
