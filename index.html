@@ -1369,31 +1369,19 @@ return true;
 
 
 function searchProducts(){
+    let search = document.getElementById("search").value.toLowerCase().trim();
+    let products = document.querySelectorAll(".product");
 
-let search =
-document.getElementById("search")
-.value
-.toLowerCase();
+    products.forEach(product => {
+        // Card ke andar jo bhi text/naam likha hai use check karega
+        let text = product.innerText.toLowerCase();
 
-
-let products =
-document.querySelectorAll(".product");
-
-
-products.forEach(product=>{
-
-let name =
-product.dataset.name.toLowerCase();
-
-
-if(name.includes(search)){
-
-product.style.display="";
-
-}else{
-
-product.style.display="none";
-
+        if(text.includes(search)){
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+    });
 }
 
 });
