@@ -706,19 +706,18 @@ View Products
 </div>
 
 
-<!-- SEARCH -->
 
 <!-- SEARCH -->
 <div class="search-area">
     <div class="search-box">
-        <input
-            class="search"
-            id="search"
-            type="text"
-            placeholder="🔎 Search product..."
+        <input 
+            class="search" 
+            id="search" 
+            type="text" 
+            placeholder="🔎 Search product (e.g. Parle, Masala)..." 
             oninput="searchProducts()"
             onkeypress="if(event.key === 'Enter') searchProducts()">
-        <button class="search-btn" onclick="searchProducts()">Search</button>
+        <button type="button" class="search-btn" onclick="searchProducts()">Search</button>
     </div>
 </div>
 
